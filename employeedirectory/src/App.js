@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/navbar'
-import Table from './components/table'
+import Navbar from './components/Navbar'
+import EmployeeMain from './components/EmployeeMain'
 
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Table />
+      <EmployeeMain />
       </div>
   );
 }

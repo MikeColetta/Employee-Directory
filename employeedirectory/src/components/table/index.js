@@ -1,41 +1,46 @@
 import React from "react";
 import "./style.css";
+import { DateTime } from "luxon";
 
-function Table() {
+
+const Table = (props) => {
+
     return (
         <div className="container">
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Date Hired</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col">Phone Number</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    {props.state.employees.map((employee) => {
+
+                        const hireDate = employee.registered.date.slice(0,10);
+
+                        return (
+                            <tr key={employee.login.uuid}>
+                                <td>
+                                    {hireDate}
+                                </td>
+                                <td>{employee.name.first}</td>
+                                <td>{employee.name.last}</td>
+                                <td>{employee.email}</td>
+                                <td>{`+1-${employee.phone}`}</td>
+                            </tr>
+                        )
+                    }
+                    )}
+
                 </tbody>
             </table>
         </div>
 
-    )
+    );
 }
 
 export default Table;

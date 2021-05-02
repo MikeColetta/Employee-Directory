@@ -1,7 +1,10 @@
 import axios from "axios";
 
-function getRandomEmployee() {
-        return axios.get("https://randomuser.me/api/");
-}
+const randomEmployeeAmount = Math.floor(Math.random() * 40 + 1)
+const URL = `https://randomuser.me/api/?results=${randomEmployeeAmount}`
 
-export default getRandomEmployee;
+export default {
+        getEmps: function () {
+                return axios.get(URL);
+        }
+}
