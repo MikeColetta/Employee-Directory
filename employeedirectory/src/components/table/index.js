@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import { DateTime } from "luxon";
 
 
 const Table = (props) => {
