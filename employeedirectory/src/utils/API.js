@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const randomEmployeeAmount = Math.floor(Math.random() * 40 + 1)
-const URL = `https://randomuser.me/api/?results=${randomEmployeeAmount}`
+const employeeAmount = Math.floor(Math.random() * 20 + 1)
+const URL = `https://randomuser.me/api/?results=${employeeAmount}`
 
 export default {
         getEmps: function () {
