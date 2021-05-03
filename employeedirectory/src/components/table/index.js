@@ -16,7 +16,7 @@ const Table = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.state.employees.map((employee) => {
+                    {props.state.filteredEmp.map((employee) => {
 
                         const hireDate = employee.registered.date.slice(0,10);
 
