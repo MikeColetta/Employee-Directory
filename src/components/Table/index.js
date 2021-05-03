@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import moment from "moment";
 
 const Table = (props) => {
 
@@ -9,8 +10,8 @@ const Table = (props) => {
                 <thead>
                     <tr>
                         <th scope="col">Date Hired</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
+                        <th scope="col" onClick={props.sortEmpFirst} className="sort">First Name</th>
+                        <th scope="col" onClick={props.sortEmpLast} className="sort">Last Name</th>
                         <th scope="col">Email Address</th>
                         <th scope="col">Phone Number</th>
                     </tr>
@@ -18,7 +19,9 @@ const Table = (props) => {
                 <tbody>
                     {props.state.filteredEmp.map((employee) => {
 
-                        const hireDate = employee.registered.date.slice(0,10);
+                        
+                        const hireDate = moment(employee.registered.date).format("MM/DD/YYYY")
+                        
 
                         return (
                             <tr key={employee.login.uuid}>

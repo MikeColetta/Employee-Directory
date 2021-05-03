@@ -3,6 +3,7 @@ import "./style.css";
 import Search from "../Search";
 import Table from "../Table";
 import API from "../../utils/API";
+import moment from "moment";
 
 
 class EmployeeMain extends Component {
@@ -33,6 +34,34 @@ class EmployeeMain extends Component {
         e.preventDefault();
     }
 
+    sortEmpFirst = (e) => {
+        this.setState({
+            filteredEmp: this.state.filteredEmp.sort(
+                (emp1, emp2) => {
+                    if (emp1.name.first < emp2.name.first) {
+                        return -1
+                    } else if (emp1.name.first > emp2.name.first) {
+                        return 1
+                    } else { return 0 }
+                }
+            )
+        })
+    }
+
+    sortEmpLast = (e) => {
+        this.setState({
+            filteredEmp: this.state.filteredEmp.sort(
+                (emp1, emp2) => {
+                    if (emp1.name.last < emp2.name.last) {
+                        return -1
+                    } else if (emp1.name.last > emp2.name.last) {
+                        return 1
+                    } else { return 0 }
+                }
+            )
+        })
+    }
+
     filterEmp = (input) => {
         if (input) {
             this.setState({
@@ -41,7 +70,8 @@ class EmployeeMain extends Component {
                         employee.name.first.includes(input) ||
                         employee.name.last.includes(input) ||
                         employee.phone.includes(input) ||
-                        employee.email.includes(input)
+                        employee.email.includes(input) ||
+                        moment(employee.registered.date).format("MM/DD/YYYY").includes(input)
                     );
                 }),
             });
@@ -61,6 +91,9 @@ class EmployeeMain extends Component {
                 <Table
                     state={this.state}
                     filterEmp={this.filterEmp}
+                    sortEmpFirst={this.sortEmpFirst}
+                    sortEmpLast={this.sortEmpLast}
+
                 />
             </div>
         );
