@@ -9,10 +9,10 @@ const Table = (props) => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th scope="col">Date Hired</th>
+                        <th scope="col" onClick={props.sortEmpDate} className="sort">Date Hired</th>
                         <th scope="col" onClick={props.sortEmpFirst} className="sort">First Name</th>
                         <th scope="col" onClick={props.sortEmpLast} className="sort">Last Name</th>
-                        <th scope="col">Email Address</th>
+                        <th scope="col" onClick={props.sortEmpEmail} className="sort">Email Address</th>
                         <th scope="col">Phone Number</th>
                     </tr>
                 </thead>

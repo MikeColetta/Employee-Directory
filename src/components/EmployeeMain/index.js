@@ -62,6 +62,34 @@ class EmployeeMain extends Component {
         })
     }
 
+    sortEmpDate = (e) => {
+        this.setState({
+            filteredEmp: this.state.filteredEmp.sort(
+                (emp1, emp2) => {
+                    if (emp1.registered.date < emp2.registered.date) {
+                        return -1
+                    } else if (emp1.registered.date > emp2.registered.date) {
+                        return 1
+                    } else { return 0 }
+                }
+            )
+        })
+    }
+
+    sortEmpEmail = (e) => {
+        this.setState({
+            filteredEmp: this.state.filteredEmp.sort(
+                (emp1, emp2) => {
+                    if (emp1.email < emp2.email) {
+                        return -1
+                    } else if (emp1.email > emp2.email) {
+                        return 1
+                    } else { return 0 }
+                }
+            )
+        })
+    }
+
     filterEmp = (input) => {
         if (input) {
             this.setState({
@@ -93,7 +121,8 @@ class EmployeeMain extends Component {
                     filterEmp={this.filterEmp}
                     sortEmpFirst={this.sortEmpFirst}
                     sortEmpLast={this.sortEmpLast}
-
+                    sortEmpDate={this.sortEmpDate}
+                    sortEmpEmail={this.sortEmpEmail}
                 />
             </div>
         );
