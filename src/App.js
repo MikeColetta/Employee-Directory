@@ -6,7 +6,7 @@ import EmployeeMain from './components/EmployeeMain'
 
 function App() {
   return (
-    <div>
+    <div id="mainBody">
       <Navbar />
       <EmployeeMain />
       </div>
