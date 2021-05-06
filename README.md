@@ -15,7 +15,7 @@ I created an Employee Directory React application. The application pulls between
     
 ## Installation
     
-[Deployed Application](https://guarded-tor-62033.herokuapp.com/)
+[Deployed Application](https://mikecoletta.github.io/Employee-Directory/)
     
 ## Usage
 
