@@ -6,14 +6,14 @@ const Table = (props) => {
 
     return (
         <div className="container">
-            <table className="table">
+            <table className="table empTable">
                 <thead>
                     <tr>
                         <th scope="col" onClick={props.sortEmpDate} className="sort">Date Hired</th>
                         <th scope="col" onClick={props.sortEmpFirst} className="sort">First Name</th>
                         <th scope="col" onClick={props.sortEmpLast} className="sort">Last Name</th>
                         <th scope="col" onClick={props.sortEmpEmail} className="sort">Email Address</th>
-                        <th scope="col">Phone Number</th>
+                        <th scope="col" onClick={props.sortEmpEmail} className="sort">Phone Number</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,7 @@ const Table = (props) => {
                         
 
                         return (
-                            <tr key={employee.login.uuid}>
+                            <tr key={employee.login.uuid} className="tableData">
                                 <td>
                                     {hireDate}
                                 </td>

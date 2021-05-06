@@ -1,3 +1,11 @@
 .sort {
     cursor:pointer;
 }
+
+.sort {
+    color: white;
+}
+
+.tableData {
+    color: white;
+}
